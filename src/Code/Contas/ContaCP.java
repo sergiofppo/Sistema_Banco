@@ -9,6 +9,8 @@ public class ContaCP extends Conta implements Rendavel {
         super(numero, titular);
     }
 
+    private static final double TAXA_RENDIMENTO = 0.005;
+
 
     @Override
     public void aplicarRendimento() {
