@@ -47,7 +47,24 @@ public class Banco {
                 return conta;
             }
         }
-        throw new ContaNaoEncontradaException("Conta com o número " + numeroConta + " não foi encontrada.");
+        throw new ContaNaoEncontradaException();
+    }
+
+    public void listarContas() {
+        System.out.println("Relatório de Contas do " + this.nomeBanco);
+        if (this.contas.isEmpty()) {
+            System.out.println("Nenhuma conta cadastrada no banco.");
+        } else {
+            for (Conta conta : this.contas) {
+                String tipoConta = (conta instanceof ContaCP) ? "Corrente" : "Poupança";
+                System.out.println(
+                        "Conta: " + conta.getNumeroConta() +
+                                " | Tipo: " + tipoConta +
+                                " | Titular: " + conta.getTitular().getNomeCliente() +
+                                " | Saldo: R$" + String.format("%.2f", conta.getSaldo())
+                );
+            }
+        }
     }
 
     public void aplicarRendimentosMensais() {

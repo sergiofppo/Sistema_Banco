@@ -5,7 +5,11 @@ public class Cliente {
     private String cpfCliente;
     private String telefoneCliente;
 
-
+    public Cliente(String nomeCliente, String cpfCliente, String telefoneCliente) {
+        this.nomeCliente = nomeCliente;
+        this.cpfCliente = cpfCliente;
+        this.telefoneCliente = telefoneCliente;
+    }
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -29,5 +33,14 @@ public class Cliente {
 
     public void setTelefoneCliente(String telefoneCliente) {
         this.telefoneCliente = telefoneCliente;
+    }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "nomeCliente='" + nomeCliente + '\'' +
+                ", cpfCliente='" + cpfCliente + '\'' +
+                ", telefoneCliente='" + telefoneCliente + '\'' +
+                '}';
     }
 }

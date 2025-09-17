@@ -23,17 +23,15 @@ public abstract class Conta implements Transacionavel {
         this.numeroConta = numeroConta;
     }
 
+    // Dentro da classe Conta.java
     @Override
     public void sacar(double valor) throws SaldoInsuficienteException {
-        if (valor <= 0) {
-            System.out.println("Valor de saque invalido: " + valor);
-            return;
-        }
+
         if (this.saldo < valor) {
-            throw new SaldoInsuficienteException("Saldo insuficiente! Saldo atual: " + saldo);
+            throw new SaldoInsuficienteException();
         }
         this.saldo -= valor;
-        System.out.println("Saque de R$ " + valor + " realizado para a conta " + numeroConta);
+        System.out.println("Saque de R$ " + valor + " realizado para a conta " + this.numeroConta);
     }
 
     @Override
@@ -44,6 +42,11 @@ public abstract class Conta implements Transacionavel {
         }  else {
             System.err.println("Valor de deposito invalido: " + valor);
         }
+    }
+
+
+    public void mostrarSaldo() {
+        System.out.println("O saldo atual da conta e de R$" + saldo);
     }
 
     @Override

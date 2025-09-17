@@ -1,7 +1,9 @@
 package Code.Exceptions;
 
 public class SaldoInsuficienteException extends Exception {
-    public SaldoInsuficienteException(String message) {
-        super(message);
+
+    @Override
+    public String getMessage() {
+        return "Saldo da Conta insuficiente.";
     }
 }

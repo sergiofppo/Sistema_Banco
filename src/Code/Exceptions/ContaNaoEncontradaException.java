@@ -1,7 +1,10 @@
 package Code.Exceptions;
 
+import Code.Cliente;
+
 public class ContaNaoEncontradaException extends Exception {
-    public ContaNaoEncontradaException(String s) {
-        super(s);
+    @Override
+    public String getMessage() {
+        return "A conta  nao foi encontrada.";
     }
 }
