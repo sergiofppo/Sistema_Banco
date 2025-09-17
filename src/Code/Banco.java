@@ -51,7 +51,7 @@ public class Banco {
     }
 
     public void listarContas() {
-        System.out.println("Relatório de Contas do " + this.nomeBanco);
+        System.out.println("Relatorio de Contas do " + this.nomeBanco);
         if (this.contas.isEmpty()) {
             System.out.println("Nenhuma conta cadastrada no banco.");
         } else {
