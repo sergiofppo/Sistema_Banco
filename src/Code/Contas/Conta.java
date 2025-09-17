@@ -3,22 +3,22 @@ package Code.Contas;
 import Code.Cliente;
 
 public abstract class Conta {
-    private int numero;
+    private int numeroConta;
     private double saldo;
     private Cliente titular;
 
     public Conta(int numero, Cliente titular) {
         this.saldo = 0;
         this.titular = titular;
-        this.numero = numero;
+        this.numeroConta = numero;
     }
 
-    public int getNumero() {
-        return numero;
+    public int getNumeroConta() {
+        return numeroConta;
     }
 
-    public void setNumero(int numero) {
-        this.numero = numero;
+    public void setNumeroConta(int numeroConta) {
+        this.numeroConta = numeroConta;
     }
 
     public double getSaldo() {
@@ -28,8 +28,7 @@ public abstract class Conta {
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
-
+    
     public Cliente getTitular() {
         return titular;
     }

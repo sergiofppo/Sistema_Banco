@@ -3,6 +3,9 @@ package Code;
 import Code.Contas.Conta;
 import Code.Contas.ContaCC;
 import Code.Contas.ContaCP;
+import Code.Exceptions.ContaNaoEncontradaException;
+import Code.Interfaces.Rendavel;
+import Code.Interfaces.Taxavel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +22,7 @@ public class Banco {
     }
 
     public Conta abrirConta(Cliente titular, String tipoConta){
+
         int novoNumeroConta = this.contas.size() + 1;
 
         Conta novaConta;
@@ -37,12 +41,36 @@ public class Banco {
         return novaConta;
     }
 
-    public int buscarConta(int numero) {
-
-        return numero;
+    public Conta buscarConta(int numeroConta) throws ContaNaoEncontradaException {
+        for (Conta conta : this.contas) {
+            if (conta.getNumeroConta() == numeroConta) {
+                return conta;
+            }
+        }
+        throw new ContaNaoEncontradaException("Conta com o número " + numeroConta + " não foi encontrada.");
     }
 
+    public void aplicarRendimentosMensais() {
+        System.out.println("Processando rendimentos de fim de mes...");
+        for (Conta conta : this.contas) {
+            if (conta instanceof Rendavel) {
+                ((Rendavel) conta).aplicarRendimento();
+            }
+        }
+    }
 
+    public void cobrarTaxasMensais() {
+        System.out.println("\nProcessando cobrança de taxas de fim de mês...");
+
+        for (Conta conta : this.contas) {
+            if (conta instanceof Taxavel) {
+                System.out.println("Verificando taxas para a conta: " + conta.getNumeroConta());
+                Taxavel contaTributavel = (Taxavel) conta;
+                contaTributavel.cobrarTaxa();
+            }
+        }
+        System.out.println("Processamento de taxas finalizado.");
+    }
 
     public String getNomeBanco() {
         return nomeBanco;
@@ -68,12 +96,4 @@ public class Banco {
         this.contas = contas;
     }
 
-    @Override
-    public String toString() {
-        return "Banco{" +
-                "nomeBanco='" + this.nomeBanco + '\'' +
-                ", idBanco=" + this.idBanco +
-                ", contas=" + this.contas +
-                '}';
-    }
 }
