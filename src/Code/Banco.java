@@ -56,7 +56,7 @@ public class Banco {
             System.out.println("Nenhuma conta cadastrada no banco.");
         } else {
             for (Conta conta : this.contas) {
-                String tipoConta = (conta instanceof ContaCP) ? "Corrente" : "Poupança";
+                String tipoConta = (conta instanceof ContaCP) ? "Corrente" : "Poupanca";
                 System.out.println(
                         "Conta: " + conta.getNumeroConta() +
                                 " | Tipo: " + tipoConta +
