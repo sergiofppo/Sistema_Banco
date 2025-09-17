@@ -77,7 +77,7 @@ public class Banco {
     }
 
     public void cobrarTaxasMensais() {
-        System.out.println("\nProcessando cobrança de taxas de fim de mês...");
+        System.out.println("\nProcessando cobrança de taxas de fim de mes...");
 
         for (Conta conta : this.contas) {
             if (conta instanceof Taxavel) {
