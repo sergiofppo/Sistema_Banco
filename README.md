@@ -1,96 +1,104 @@
-🏦 Simulador de Sistema Bancário em Java
-Este projeto é uma simulação de um sistema bancário básico, desenvolvido em Java como um exercício prático para aplicar e demonstrar os principais conceitos de Programação Orientada a Objetos (POO).
+# 🏦 Simulador de Sistema Bancário em Java  
 
-O sistema é uma aplicação de console que permite a criação e gerenciamento de contas bancárias, realizando operações como saques, depósitos, transferências e processamento de taxas e rendimentos.
+![Java](https://img.shields.io/badge/Java-17-orange?logo=java&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-blue)
+![POO](https://img.shields.io/badge/POO-100%25-success)
+![License](https://img.shields.io/badge/Licen%C3%A7a-MIT-green)
+![Made with Love](https://img.shields.io/badge/Made%20with-%E2%9D%A4-red)
 
-✨ Funcionalidades Principais
-Abertura de Contas: Criação de diferentes tipos de contas (Conta Corrente e Conta Poupança).
+Este projeto é uma **simulação de um sistema bancário básico**, desenvolvido em **Java** como um exercício prático para aplicar e demonstrar os principais conceitos de **Programação Orientada a Objetos (POO)**.  
 
-Operações Básicas: Realização de depósitos e saques, com validação de saldo.
+O sistema é uma aplicação de **console** que permite a criação e gerenciamento de contas bancárias, realizando operações como **saques, depósitos, transferências** e **processamento de taxas e rendimentos**.  
 
-Transferências: Transferência de valores entre contas com segurança.
+---
 
-Busca de Contas: Localização de contas específicas através do número.
+## ✨ Funcionalidades Principais  
 
-Processamento em Lote:
+✅ **Abertura de Contas:** Criação de diferentes tipos de contas (Conta Corrente e Conta Poupança).  
+✅ **Operações Básicas:** Realização de depósitos e saques, com validação de saldo.  
+✅ **Transferências:** Transferência de valores entre contas com segurança.  
+✅ **Busca de Contas:** Localização de contas específicas através do número.  
+✅ **Processamento em Lote:**  
+   - Cobrança de taxas de manutenção mensais (apenas para Contas Corrente).  
+   - Aplicação de rendimentos mensais (apenas para Contas Poupança).  
+✅ **Gerenciamento de Clientes:** Associação de contas a clientes (nome e CPF).  
+✅ **Tratamento de Erros:** Sistema robusto de exceções para lidar com operações inválidas (ex: saldo insuficiente, conta não encontrada, valor inválido).  
 
-Cobrança de taxas de manutenção mensais (apenas para Contas Corrente).
+---
 
-Aplicação de rendimentos mensais (apenas para Contas Poupança).
+## 🔧 Tecnologias e Conceitos Aplicados  
 
-Gerenciamento de Clientes: Associação de contas a clientes, que possuem dados como nome, CPF e endereço.
+🚀 **Java** – linguagem de programação principal  
+🧠 **Abstração:** Uso de classes abstratas (`Conta`) para modelar comportamentos comuns  
+🔒 **Encapsulamento:** Proteção dos atributos com `private` e `protected` + getters/setters  
+🏛️ **Herança:** Especialização da classe `Conta` nas classes `ContaCorrente` e `ContaPoupanca`  
+🎭 **Polimorfismo:** Lista de `Conta` armazenando objetos de subtipos e operações em lote  
+📜 **Interfaces:** `Transacionavel`, `Tributavel`, `Rentavel` para contratos de comportamento  
+⚙️ **Composição:** Uma `Conta` tem um `Cliente`  
+⚠️ **Tratamento de Exceções:** `SaldoInsuficienteException`, `ContaNaoEncontradaException`  
+📚 **Java Collections:** Uso de `ArrayList` para gerenciar a lista de contas  
 
-Tratamento de Erros: Sistema robusto de exceções para lidar com operações inválidas (ex: saldo insuficiente, conta não encontrada, valor inválido).
+## 📂 Estrutura do Projeto  
 
-🔧 Tecnologias e Conceitos Aplicados
-Este projeto foi construído utilizando Java e foca na aplicação dos seguintes conceitos de POO e engenharia de software:
+src/
+├── Banco.java              # Classe principal que orquestra todas as operações
+├── Conta.java              # Classe abstrata base
+├── ContaCorrente.java      # Implementa lógica de taxa mensal
+├── ContaPoupanca.java      # Implementa lógica de rendimento mensal
+├── Cliente.java            # Modelo de dados do cliente
+├── interfaces/
+│    ├── Transacionavel.java
+│    ├── Tributavel.java
+│    └── Rentavel.java
+├── exceptions/
+│    ├── SaldoInsuficienteException.java
+│    └── ContaNaoEncontradaException.java
+└── SimulacaoBancaria.java  # Classe com método main para testes
 
-Abstração: Uso de classes abstratas (Conta) para modelar comportamentos e atributos comuns.
 
-Encapsulamento: Proteção dos atributos das classes com modificadores de acesso (private, protected) e exposição controlada através de métodos (getters).
 
-Herança: Especialização da classe Conta nas classes filhas ContaCorrente e ContaPoupanca.
 
-Polimorfismo: Utilização de uma lista de Conta para armazenar objetos de seus subtipos, e aplicação de operações em lote com o operador instanceof.
+## 🚀 Como Executar  
 
-Interfaces: Definição de contratos de comportamento com as interfaces Transacionavel, Tributavel e Rentavel, promovendo um design desacoplado e flexível.
+### 1️⃣ Clone o repositório  
+```bash
+git clone https://github.com/sergiofppo/Sistema_Banco.git
+````
 
-Composição: Relação "tem-um" entre as classes (uma Conta tem um Cliente, um Cliente tem um Endereco).
+### 2️⃣ Navegue até o diretório do projeto
 
-Tratamento de Exceções: Criação e utilização de exceções customizadas (SaldoInsuficienteException, ContaNaoEncontradaException) para um controle de fluxo de erros robusto.
+```bash
+cd Sistema_Banco
+```
 
-Java Collections Framework: Uso de ArrayList para gerenciar a coleção de contas na classe Banco.
+### 3️⃣ Compile os arquivos `.java`
 
-📂 Estrutura do Projeto
-O código está organizado da seguinte forma:
+(Navegue até a pasta `src/`)
 
-Banco: Classe principal que atua como controladora, orquestrando todas as operações e gerenciando a lista de contas.
+```bash
+javac *.java */*.java
+```
 
-Conta (abstrata): Superclasse que define a estrutura e os comportamentos base de todas as contas.
+💡 **Dica:** Se estiver usando **IntelliJ, Eclipse ou VS Code**, basta abrir o projeto e clicar em **Run** na classe `SimulacaoBancaria`.
 
-ContaCorrente e ContaPoupanca: Subclasses que herdam de Conta e implementam lógicas específicas, como cobrança de taxas e aplicação de rendimentos.
+### 4️⃣ Execute a simulação
 
-Cliente e Endereco: Classes de modelo que representam os dados do titular da conta e seu endereço.
-
-Interfaces (Transacionavel, Tributavel, Rentavel): Contratos que definem as capacidades que uma classe pode implementar.
-
-Exceptions: Classes de exceções customizadas para um tratamento de erros específico do domínio do problema.
-
-SimulacaoBancaria: Classe executável com o método main para testar e demonstrar o funcionamento do sistema.
-
-🚀 Como Executar
-Para compilar e executar este projeto, você precisará de um JDK (Java Development Kit) instalado em sua máquina (versão 8 ou superior).
-
-Clone o repositório:
-
-Bash
-
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-Navegue até o diretório do projeto:
-
-Bash
-
-cd nome-do-repositorio
-Compile os arquivos .java:
-(Navegue até a pasta onde estão os arquivos fontes, ex: src)
-
-Bash
-
-javac *.java */*.java  # Compila os arquivos na pasta atual e em subpastas
-Se você estiver usando uma IDE como IntelliJ, Eclipse ou VS Code, basta abrir o projeto e clicar em "Run" na classe SimulacaoBancaria.
-
-Execute a simulação:
-
-Bash
-
+```bash
 java SimulacaoBancaria
+```
+
 O terminal exibirá o log completo de todas as operações realizadas no cenário de teste.
 
-✒️ Autor
-[Seu Nome Completo Aqui]
+---
 
-LinkedIn: https://www.linkedin.com/in/seu-usuario/
+## ✒️ Autor
 
-GitHub: https://github.com/seu-usuario
+👤 **Sérgio Mendes Filippo**
+🔗 [LinkedIn](https://www.linkedin.com/in/sergiofppo/)
+💻 [GitHub](https://github.com/sergiofppo)
 
-Este projeto foi desenvolvido como parte de um estudo aprofundado em Programação Orientada a Objetos com Java.
+---
+
+💡 *Este projeto foi desenvolvido como parte de um estudo aprofundado em Programação Orientada a Objetos com Java.*
+
+```
